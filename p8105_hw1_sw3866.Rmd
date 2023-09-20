@@ -2,7 +2,7 @@
 title: "p8105_hw1_sw3866"
 author: "Siyan Wen"
 date: "2023-09-19"
-output: html_document
+output: github_document
 ---
 ## Problem 1
 ```{r}
