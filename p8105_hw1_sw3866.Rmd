@@ -18,8 +18,45 @@ This dataset contains hourly meterological data for LGA,JFK and EWR in early Jan
 ```{r}
 ## Scatterplot of Temperature and Humidity over time in hours.
 ggplot(early_january_weather,aes(x=time_hour,y=temp,color = humid))+geom_point()
+```
+The temperature gradually increased in the range of approximately 25 to 55 degrees Fahrenheit from January 1st to mid-January. Additionally, the humidity fluctuated from January 1st to January 12th and has significant increase from January 12th to the 14th for around two days.
+```{r}
+##Export the scatterplot
 ggsave("scatterplot.pdf")
 ```
-The temperature gradually increased in the range of approximately 25 to 55 degrees Fahrenheit from January 1st to mid-January. Additionally, the humidity fluctuated slightly from January 1st to January 12th, and there was a significant increase in humidity from January 12th to the 14th for around two days.
 
 ## Problem 2
+```{r}
+#Create a data frame
+df<-tibble(random_sample=rnorm(n = 10, mean = 0, sd = 1),
+logical=random_sample>0,
+charactor=c("a","b","c","a","b","c","a","b","c","a"),
+factor=factor(x=charactor,labels=c("large","small","medium")))
+```
+```{r}
+# Use pull function
+col_1=pull(df,var=random_sample)
+col_2=pull(df,var=logical)
+col_3=pull(df,var=charactor)
+col_4=pull(df,var=factor)
+```
+```{r}
+# Take the mean of each variable in the dataset
+mean(col_1)
+mean(col_2)
+mean(col_3)
+mean(col_4)
+```
+The "mean" function worked for numeric or logical variables. Column 1 is numeric variable and column 2 is logical variable. So, the "mean" function worked for column 1 and column 2. However, the "mean function did not worked for character and factor variables. So, it did not works for column 3 or column 4 because they are either character or factor variable.
+
+
+```{r,eval=FALSE}
+#the mean of each variable in dataset using as.numeric
+mean(as.numeric(col_1))
+mean(as.numeric(col_2))
+mean(as.numeric(col_3))
+mean(as.numeric(col_4))
+```
+After using the "as.numeric" function, the "mean" function worked for column 1,2 and 4,but it still did not worked for column 3. The "as.numeric"function is used to convert a character/factor vector into a numeric vector. However,it cannot convert a character vector into a numeric vector when all the elements inside that character vector are letters. It can only convert factor vector that have been treated as three different levels into numeric vector. Three different levels have been convert into numerical values as 1, 2 and 3 under the "as.numeric"function. Therefore, the "mean" function worked for column 4 this time.  
+
+
