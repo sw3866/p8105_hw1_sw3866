@@ -14,7 +14,7 @@ data("early_january_weather")
 #Accessing data
 help("early_january_weather")
 ```
-This dataset contains hourly meterological data for LGA,JFK and EWR in early January 2013. In total, it has 15 variables including origin, year, month, day, hour, temp, dewp,humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib and time_hour. The size of this dataset is `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.The mean temperature of this dataset is `r mean (early_january_weather $ temp)` °F.
+This dataset contains hourly meterological data for LGA,JFK and EWR in early January 2013. In total, it has 15 variables including origin, year, month, day, hour, temp, dewp, humid, precip, time_hour and so on. The size of this dataset is `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.The mean temperature of this dataset is `r mean (early_january_weather $ temp)` °F.
 ```{r}
 ## Scatterplot of Temperature and Humidity over time in hours.
 ggplot(early_january_weather,aes(x=time_hour,y=temp,color = humid))+geom_point()
@@ -59,6 +59,6 @@ mean(as.numeric(col_2))
 mean(as.numeric(col_3))
 mean(as.numeric(col_4))
 ```
-After using the "as.numeric" function, the "mean" function worked for column 1,2 and 4,but it still did not worked for column 3. The "as.numeric"function is used to convert a character/factor vector into a numeric vector. However,it cannot convert a character vector into a numeric vector when all the elements inside that character vector are letters. It can only convert factor vector that have been treated as three different levels into numeric vector. Three different levels have been convert into numerical values as 1, 2 and 3 under the "as.numeric"function. Therefore, the "mean" function worked for column 4 this time.  
+After using the "as.numeric" function, the "mean" function worked for column 1,2 and 4, but it still did not worked for column 3. The "as.numeric"function is used to convert a character/factor vector into a numeric vector. However,it cannot convert a character vector into a numeric vector when all the elements inside that character vector are letters. It can only convert factor vector that have been treated as three different levels into numeric vector. Three different levels have been convert into numerical values as 1, 2 and 3 under the "as.numeric"function. Therefore, the "mean" function worked for column 4 this time.  
 
 
